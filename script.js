@@ -11,7 +11,7 @@ var choseLen, addNumber, addLower, addUpper, addSpcChar, password;
 var generateBtn = document.querySelector("#generate");
 generateBtn.addEventListener("click", writePassword);
 
-
+// For loop generating random characters
 function generatePassword(passRequirements) {
   finalPassword = "";
   for (var i = 0; i < choseLen; i++) {
@@ -20,15 +20,17 @@ function generatePassword(passRequirements) {
   return finalPassword;
 }
 
-
+//Confirm prompts for user deciding what character types will be used
 function promptUser() {
-  addNumber = confirm("Click OK if you would like NUMBERS and CANCEL if not.");
-  addLower = confirm("Click OK if you would like LOWERCASE characters and CANCEL if not.");
-  addUpper = confirm("Click OK if you would like UPPERCASE characters and CANCEL if not.");
-  addSpecChar = confirm("Click OK if you would like SPECIAL characters and CANCEL if not.");
+  addNumber = confirm("Click OK if you would like NUMBERS in your password, and click CANCEL if not.");
+  addLower = confirm("Click OK if you would like UPPERCASE characters and click CANCEL if not.");
+  addUpper = confirm("Click OK if you would like LOWERCASE characters and click CANCEL if not.");
+  addSpecChar = confirm("Click OK if you would like SPECIAL characters and click CANCEL if not.");
 }
 
+// Function for generating password, 
 function writePassword() {
+  // Promps user to choose length of characters, if outside of defined range, alert requiring that the correct number be entered displays
 
   choseLen = prompt("Choose between 8 and 128 characters");
   while (choseLen < 8 || choseLen > 128) {
@@ -36,7 +38,7 @@ function writePassword() {
   }
   promptUser();
 
-  //If user selects at least 1 
+  //Defines the variable passRequirments
   if (addNumber || addLower || addUpper || addSpecChar) {
     document.querySelector("#password").value = "";
     var passRequirements = "";
@@ -62,7 +64,7 @@ function writePassword() {
   }
 };
 
-// Write password to the #password input
+// Function writes password into password text box
 function writePass(passRequirements) {
   var password = generatePassword(passRequirements);
   var passwordText = document.querySelector("#password");
