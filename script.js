@@ -5,13 +5,14 @@ var upperCase = "ABCDEFGHIJKLMONPQRSTUVXWYZ";
 var specChar = " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 var finalPassword = "";
 
+//Empty variables that the above character types feed into
 var choseLen, addNumber, addLower, addUpper, addSpcChar, password;
 
 // Event listener tied to generate button
 var generateBtn = document.querySelector("#generate");
 generateBtn.addEventListener("click", writePassword);
 
-// For loop generating random characters
+// For loop generating random characters from strings that make up passRequirements
 function generatePassword(passRequirements) {
   finalPassword = "";
   for (var i = 0; i < choseLen; i++) {
@@ -38,7 +39,7 @@ function writePassword() {
   }
   promptUser();
 
-  //Defines the variable passRequirments
+  // Adds type of character to password string when slected, also with or and else verifies that at least one type must be chosen
   if (addNumber || addLower || addUpper || addSpecChar) {
     document.querySelector("#password").value = "";
     var passRequirements = "";
